@@ -13,6 +13,8 @@ sh commands install
 sh commands start
 ```
 
+[Demo](http://54.93.50.24:3002/dist/)
+
 ## Todo
 
 - Schedule events

@@ -11,10 +11,12 @@ set -e
 cd my-calendar/
 git pull origin master
 
+# install backend dependencies
 cd backend
 npm install
 npm audit fix
 
+# install fronend dependencies
 cd ../frontend
 npm install
 npm audit fix
