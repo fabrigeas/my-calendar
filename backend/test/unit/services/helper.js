@@ -23,8 +23,8 @@ var request = require('request-promise');
 const fetch = async (user, url, {method = "GET", body, uri} = {} ) => {
 
   const options = {
-    // uri: uri || `http://localhost:3000/api/${url}`,
-    uri: uri || `http://localhost:3000/api/${url}`,
+    // uri: uri || `http://localhost:3002/api/${url}`,
+    uri: uri || `http://localhost:3002/api/${url}`,
     method,
     headers: {
       "Content-Type": "application/json",

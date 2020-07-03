@@ -134,7 +134,7 @@ import { CalendarEvent } from '../types';
 import moment from 'moment';
 import { calculateDuration } from '../time';
 
-const baseUrl = 'http://localhost:3000/api/events';
+const baseUrl = 'http://localhost:3002/api/events';
 export default Vue.extend({
   components: {
     Modal,

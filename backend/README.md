@@ -7,7 +7,7 @@ This is a [Moleculer](https://moleculer.services/)-based microservices project. 
 ## Usage
 
 Start the project in development mode with `npm run watch` command.
-After starting, open the http://localhost:3000/ URL in your browser.
+After starting, open the http://localhost:3002/ URL in your browser.
 On the welcome page you can test the generated services via API Gateway and check the nodes & services.
 
 ## Useful links

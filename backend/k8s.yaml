@@ -9,15 +9,7 @@ data:
   NAMESPACE: ""
   LOGLEVEL: info
   SERVICEDIR: services
-  
-  
-  
-  
-  
-  
-  
-  
-  
+
   MONGO_URI: mongodb://mongo/moleculer-boiler-plate
 
 ---
@@ -32,8 +24,8 @@ spec:
   selector:
     app: api
   ports:
-  - port: 3000
-    targetPort: 3000
+    - port: 3002
+      targetPort: 3002
 
 ---
 #########################################################
@@ -45,13 +37,13 @@ metadata:
   name: ingress
 spec:
   rules:
-  - host: moleculer-boiler-plate.127.0.0.1.nip.io
-    http:
-      paths:
-      - path: /
-        backend:
-          serviceName: api
-          servicePort: 3000
+    - host: moleculer-boiler-plate.127.0.0.1.nip.io
+      http:
+        paths:
+          - path: /
+            backend:
+              serviceName: api
+              servicePort: 3002
 
 ---
 #########################################################
@@ -72,14 +64,14 @@ spec:
         app: api
     spec:
       containers:
-      - name: api
-        image: moleculer-boiler-plate
-        envFrom:
-        - configMapRef:
-            name: common-env
-        env:
-          - name: SERVICES
-            value: api
+        - name: api
+          image: moleculer-boiler-plate
+          envFrom:
+            - configMapRef:
+                name: common-env
+          env:
+            - name: SERVICES
+              value: api
 
 ---
 #########################################################
@@ -100,14 +92,14 @@ spec:
         app: greeter
     spec:
       containers:
-      - name: greeter
-        image: moleculer-boiler-plate
-        envFrom:
-        - configMapRef:
-            name: common-env
-        env:
-          - name: SERVICES
-            value: greeter
+        - name: greeter
+          image: moleculer-boiler-plate
+          envFrom:
+            - configMapRef:
+                name: common-env
+          env:
+            - name: SERVICES
+              value: greeter
 
 ---
 #########################################################
@@ -128,14 +120,14 @@ spec:
         app: products
     spec:
       containers:
-      - name: products
-        image: moleculer-boiler-plate
-        envFrom:
-        - configMapRef:
-            name: common-env
-        env:
-          - name: SERVICES
-            value: products
+        - name: products
+          image: moleculer-boiler-plate
+          envFrom:
+            - configMapRef:
+                name: common-env
+          env:
+            - name: SERVICES
+              value: products
 
 ---
 #########################################################
@@ -204,12 +196,4 @@ spec:
     - port: 27017
       targetPort: 27017
   selector:
-    app: mongo          
-
-
-
-
-
-
-
-
+    app: mongo

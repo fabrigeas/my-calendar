@@ -62,7 +62,7 @@ declare const process: {
   };
 };
 
-const baseUrl = process.env.NODE_ENV === 'production' ? '/' : 'http://localhost:3000/api/events';
+const baseUrl = process.env.NODE_ENV === 'production' ? '/' : 'http://localhost:3002/api/events';
 
 export interface DateFormat {
   day: string;
