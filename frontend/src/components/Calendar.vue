@@ -53,10 +53,16 @@ import Vue from 'vue';
 import moment from 'moment';
 import EventDialog from '@/components/EventDialog.vue';
 import AppEvent from '@/components/AppEvent.vue';
-import { EventType, CalendarEvent } from '@/types.ts';
-import { addMinutes } from '@/time.ts';
+import { EventType, CalendarEvent } from '../types';
+import { addMinutes } from '../time';
 
-const baseUrl = 'http://localhost:3000/api/events';
+declare const process: {
+  env: {
+    NODE_ENV: string;
+  };
+};
+
+const baseUrl = process.env.NODE_ENV === 'production' ? '/' : 'http://localhost:3000/api/events';
 
 export interface DateFormat {
   day: string;
