@@ -1,16 +1,35 @@
 #/!/bin/bash
 
-## This script starts both the front end and backend
+# installs dependencies for both fronend and backend
+install() {
+  cd backend
+  npm install
+  npm audit fix
+
+  cd ../frontend
+  npm install
+  npm audit fix
+}
+
+# start the backend
 startBackend() {
   cd backend
   npm run watch &
 }
 
+# start the frontend
 startFrontend() {
   cd ../frontend
   npm run serve
 }
 
+# deploy your changes
+# - build the fronend
+# - the backend does not need to be built
+# - push to remote repository
+# - connect to aws through ssh
+# - from aws pull everithing
+# - restart the server
 deploy() {
   cd frontend
   git commit -am "deploying"
@@ -27,8 +46,14 @@ deploy() {
 
 }
 
+# Starts both the fronend and backend
 start() {
   startBackend && startFrontend
 }
 
-$1
+# execute your command
+$1 || printf "\x1B[31m Only the following commands are accepted
+'startBackend' - to start only the backend (webservices)
+'startFrontend' - to start only the fronend app
+'start' - to start both the webservice and the web application
+'install' - to install dependencies \n"
