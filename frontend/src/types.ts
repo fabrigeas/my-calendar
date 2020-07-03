@@ -1,8 +1,3 @@
-export type EventType = {
-  [startDate: string]: {
-    [startTime: string]: CalendarEvent
-}
-
 export type CalendarEvent = {
   id?: string;
   title: string;
@@ -20,4 +15,10 @@ export type CalendarEvent = {
   concerned: string;
   links: Array<string>;
   downloadCSV: boolean;
-}
+};
+
+export type EventType = {
+  [startDate: string]: {
+    [startTime: string]: CalendarEvent;
+  };
+};
