@@ -42,11 +42,9 @@ deploy() {
   cd ../backend
   git add public/dist
   git commit -am "deploying"
-
-  cd -
-
   git push origin master
 
+  cd ..
   # run the deploy script remotely
   ssh -i "aws-instance-keypair-2.pem" ec2-user@ec2-54-93-50-24.eu-central-1.compute.amazonaws.com "my-calendar/deploy.sh"
 
