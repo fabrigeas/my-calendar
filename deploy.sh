@@ -15,7 +15,7 @@ cd backend
 npm install
 npm audit fix
 
-cd ../frontnend
+cd ../frontend
 npm install
 npm audit fix
 
