@@ -8,8 +8,15 @@
 
 set -e
 
-cd my-calendar
+cd my-calendar/
 git pull origin master
+
+cd backend
 npm install
 npm audit fix
+
+cd ../frontnend
+npm install
+npm audit fix
+
 pm2
