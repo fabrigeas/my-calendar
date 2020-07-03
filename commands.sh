@@ -1,5 +1,8 @@
 #/!/bin/bash
 
+#abort immediately if any command fails
+set -e
+
 # installs dependencies for both fronend and backend
 install() {
   cd backend
@@ -44,11 +47,23 @@ deploy() {
 
   git push origin master
 
+  # run the deploy script remotely
+  ssh -i "aws-instance-keypair-2.pem" ec2-user@ec2-54-93-50-24.eu-central-1.compute.amazonaws.com "my-calendar/deploy.sh"
+
+  printf "\x1b[32mDeployment complete!!
+  Visit http://54.93.50.24:3002/"
+
 }
 
 # Starts both the fronend and backend
 start() {
   startBackend && startFrontend
+}
+
+##
+
+awsConnect() {
+  ssh -i "aws-instance-keypair-2.pem" ec2-user@ec2-54-93-50-24.eu-central-1.compute.amazonaws.com
 }
 
 # execute your command
