@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/4.3.1/workbox-sw.js");
 
 importScripts(
-  "/dist/precache-manifest.3199a27f766fba61107adf89ad7c8426.js"
+  "/dist/precache-manifest.2523ac2a609841cc35ebfd6e03fa2310.js"
 );
 
 workbox.core.setCacheNameDetails({prefix: "my-calendar"});
